@@ -1,0 +1,2516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OtelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TBLBANKAHAREKETLER">
+          <Key>
+            <PropertyRef Name="BANKAHAREKETID" />
+          </Key>
+          <Property Name="BANKAHAREKETID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HESAPID" Type="int" />
+          <Property Name="HESAPBELGENO" Type="varchar" MaxLength="30" />
+          <Property Name="GIREN" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CIKAN" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ACIKLAMA" Type="varchar" MaxLength="200" />
+          <Property Name="TARIH" Type="datetime" />
+          <Property Name="ISLEMID" Type="int" />
+          <Property Name="PERSONEL" Type="int" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLBANKALAR">
+          <Key>
+            <PropertyRef Name="BANKAID" />
+          </Key>
+          <Property Name="BANKAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SUBE" Type="varchar" MaxLength="30" />
+          <Property Name="BANKAADI" Type="varchar" MaxLength="30" />
+          <Property Name="BANKAHESAPNO" Type="varchar" MaxLength="20" />
+          <Property Name="KUR" Type="int" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLBIRIMLER">
+          <Key>
+            <PropertyRef Name="BIRIMID" />
+          </Key>
+          <Property Name="BIRIMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BIRIMAD" Type="varchar" MaxLength="20" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLCARIHAREKETLER">
+          <Key>
+            <PropertyRef Name="CARIHAREKETID" />
+          </Key>
+          <Property Name="CARIHAREKETID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CARIID" Type="int" />
+          <Property Name="ISLEM" Type="int" />
+          <Property Name="BELGENO" Type="varchar" MaxLength="30" />
+          <Property Name="KUR" Type="int" />
+          <Property Name="NAKIT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="KREDIKARTI" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TARIH" Type="datetime" />
+          <Property Name="ACIKLAMA" Type="varchar" MaxLength="100" />
+          <Property Name="PERSONEL" Type="int" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLCARIKONUKHAREKETLER">
+          <Key>
+            <PropertyRef Name="CARIKONUKHAREKETID" />
+          </Key>
+          <Property Name="CARIKONUKHAREKETID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ODA" Type="int" />
+          <Property Name="CARI" Type="int" />
+          <Property Name="PERSONEL" Type="int" />
+          <Property Name="ADSOYAD" Type="varchar" MaxLength="30" />
+          <Property Name="GIRISTARIH" Type="datetime" />
+          <Property Name="CIKISTARIH" Type="datetime" />
+          <Property Name="ACIKLAMA" Type="varchar" MaxLength="100" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLCARILER">
+          <Key>
+            <PropertyRef Name="CARIID" />
+          </Key>
+          <Property Name="CARIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CARIADSOYAD" Type="varchar" MaxLength="30" />
+          <Property Name="CARIADRES" Type="varchar" MaxLength="100" />
+          <Property Name="CARITC" Type="char" MaxLength="11" />
+          <Property Name="VERGIDAIRE" Type="varchar" MaxLength="30" />
+          <Property Name="TELEFON" Type="varchar" MaxLength="20" />
+          <Property Name="MAIL" Type="varchar" MaxLength="50" />
+          <Property Name="KIMLIKFOTO1" Type="varchar" MaxLength="100" />
+          <Property Name="KIMLIKFOTO2" Type="varchar" MaxLength="100" />
+          <Property Name="CARITUR" Type="int" />
+          <Property Name="YETKILI" Type="varchar" MaxLength="50" />
+          <Property Name="ACIKLAMA" Type="varchar" MaxLength="100" />
+          <Property Name="UYRUK" Type="int" />
+          <Property Name="BAKIYE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLCARITURLER">
+          <Key>
+            <PropertyRef Name="CARITURID" />
+          </Key>
+          <Property Name="CARITURID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CARITURAD" Type="varchar" MaxLength="20" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLDEPARTMANLAR">
+          <Key>
+            <PropertyRef Name="DEPARTMANID" />
+          </Key>
+          <Property Name="DEPARTMANID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DEPARTMANAD" Type="varchar" MaxLength="20" />
+          <Property Name="TELEFON" Type="char" MaxLength="4" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLDURUMLAR">
+          <Key>
+            <PropertyRef Name="DURUMID" />
+          </Key>
+          <Property Name="DURUMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DURUMAD" Type="varchar" MaxLength="20" />
+          <Property Name="KATEGORI" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TBLGOREVLER">
+          <Key>
+            <PropertyRef Name="GOREVID" />
+          </Key>
+          <Property Name="GOREVID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GOREVAD" Type="varchar" MaxLength="20" />
+          <Property Name="DEPARTMAN" Type="int" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLISLEMLER">
+          <Key>
+            <PropertyRef Name="ISLEMID" />
+          </Key>
+          <Property Name="ISLEMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ISLEMAD" Type="varchar" MaxLength="100" />
+          <Property Name="KATEGORI" Type="varchar" MaxLength="20" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLKASAHAREKETLER">
+          <Key>
+            <PropertyRef Name="KASAHAREKETID" />
+          </Key>
+          <Property Name="KASAHAREKETID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KASAID" Type="int" />
+          <Property Name="KASABELGENO" Type="varchar" MaxLength="30" />
+          <Property Name="GIREN" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CIKAN" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ACIKLAMA" Type="varchar" MaxLength="200" />
+          <Property Name="TARIH" Type="datetime" />
+          <Property Name="ISLEM" Type="int" />
+          <Property Name="PERSONEL" Type="int" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLKASALAR">
+          <Key>
+            <PropertyRef Name="KASAID" />
+          </Key>
+          <Property Name="KASAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KASAADI" Type="varchar" MaxLength="30" />
+          <Property Name="BAKIYE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GIRENDEGER" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CIKANDEGER" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLKURLAR">
+          <Key>
+            <PropertyRef Name="KURID" />
+          </Key>
+          <Property Name="KURID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KURAD" Type="varchar" MaxLength="20" />
+          <Property Name="KURSEMBOL" Type="nchar" MaxLength="1" />
+          <Property Name="KURDEGER" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="KURTARIH" Type="datetime" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLODALAR">
+          <Key>
+            <PropertyRef Name="ODAID" />
+          </Key>
+          <Property Name="ODAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ODANO" Type="char" MaxLength="3" />
+          <Property Name="KAT" Type="char" MaxLength="1" />
+          <Property Name="KAPASITE" Type="char" MaxLength="1" />
+          <Property Name="OZELLIK" Type="varchar" MaxLength="100" />
+          <Property Name="ACIKLAMA" Type="varchar" MaxLength="150" />
+          <Property Name="TELEFON" Type="char" MaxLength="4" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLPERSONELLER">
+          <Key>
+            <PropertyRef Name="PERSONELID" />
+          </Key>
+          <Property Name="PERSONELID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ADSOYAD" Type="varchar" MaxLength="50" />
+          <Property Name="PERSONELTC" Type="char" MaxLength="11" />
+          <Property Name="ADRES" Type="varchar" MaxLength="100" />
+          <Property Name="TELEFON" Type="varchar" MaxLength="20" />
+          <Property Name="MAIL" Type="varchar" MaxLength="30" />
+          <Property Name="KANGRUBU" Type="varchar" MaxLength="10" />
+          <Property Name="ISEGIRISTARIH" Type="datetime" />
+          <Property Name="ISCIKISTARIH" Type="datetime" />
+          <Property Name="DEPARTMAN" Type="int" />
+          <Property Name="GOREV" Type="int" />
+          <Property Name="YETKISI" Type="char" MaxLength="1" />
+          <Property Name="SIFRE" Type="varchar" MaxLength="10" />
+          <Property Name="KIMLIKON" Type="varchar" MaxLength="100" />
+          <Property Name="KIMLIKARKA" Type="varchar" MaxLength="100" />
+          <Property Name="EHLIYET" Type="varchar" MaxLength="20" />
+          <Property Name="ACIKLAMA" Type="varchar" MaxLength="300" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLREZERVASYONLAR">
+          <Key>
+            <PropertyRef Name="REZERVASYONID" />
+          </Key>
+          <Property Name="REZERVASYONID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CARI" Type="int" />
+          <Property Name="GIRISTARIH" Type="datetime" />
+          <Property Name="CIKISTARIH" Type="datetime" />
+          <Property Name="KISI" Type="varchar" MaxLength="3" />
+          <Property Name="ODA" Type="int" />
+          <Property Name="REZERVASYONADSOYAD" Type="varchar" MaxLength="30" />
+          <Property Name="TELEFON" Type="varchar" MaxLength="20" />
+          <Property Name="MAIL" Type="varchar" MaxLength="50" />
+          <Property Name="ACIKLAMA" Type="varchar" MaxLength="250" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLTELEFONLAR">
+          <Key>
+            <PropertyRef Name="TELEFONID" />
+          </Key>
+          <Property Name="TELEFONID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TELEFONNO" Type="varchar" MaxLength="15" />
+          <Property Name="ACIKLAMA" Type="varchar" MaxLength="20" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLURUNGRUPLAR">
+          <Key>
+            <PropertyRef Name="URUNGRUPID" />
+          </Key>
+          <Property Name="URUNGRUPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GRUPADI" Type="varchar" MaxLength="15" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLURUNLER">
+          <Key>
+            <PropertyRef Name="URUNID" />
+          </Key>
+          <Property Name="URUNID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="URUNAD" Type="varchar" MaxLength="30" />
+          <Property Name="URUNGRUP" Type="int" />
+          <Property Name="BIRIM" Type="int" />
+          <Property Name="FIYAT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="KUR" Type="int" />
+          <Property Name="GIREN" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CIKAN" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="KALAN" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="KDV" Type="tinyint" />
+          <Property Name="TARIH" Type="datetime" />
+          <Property Name="PERSONEL" Type="int" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLUYRUKLAR">
+          <Key>
+            <PropertyRef Name="UYRUKID" />
+          </Key>
+          <Property Name="UYRUKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ULKEAD" Type="varchar" MaxLength="40" />
+          <Property Name="DURUM" Type="int" />
+        </EntityType>
+        <Association Name="FK_TBLBANKAHAREKETLER_TBLBANKALAR">
+          <End Role="TBLBANKALAR" Type="Self.TBLBANKALAR" Multiplicity="0..1" />
+          <End Role="TBLBANKAHAREKETLER" Type="Self.TBLBANKAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLBANKALAR">
+              <PropertyRef Name="BANKAID" />
+            </Principal>
+            <Dependent Role="TBLBANKAHAREKETLER">
+              <PropertyRef Name="HESAPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLBANKAHAREKETLER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLBANKAHAREKETLER" Type="Self.TBLBANKAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLBANKAHAREKETLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLBANKAHAREKETLER_TBLDURUMLAR1">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLBANKAHAREKETLER" Type="Self.TBLBANKAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLBANKAHAREKETLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLBANKAHAREKETLER_TBLISLEM">
+          <End Role="TBLISLEMLER" Type="Self.TBLISLEMLER" Multiplicity="0..1" />
+          <End Role="TBLBANKAHAREKETLER" Type="Self.TBLBANKAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLISLEMLER">
+              <PropertyRef Name="ISLEMID" />
+            </Principal>
+            <Dependent Role="TBLBANKAHAREKETLER">
+              <PropertyRef Name="ISLEMID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLBANKAHAREKETLER_TBLPERSONELLER">
+          <End Role="TBLPERSONELLER" Type="Self.TBLPERSONELLER" Multiplicity="0..1" />
+          <End Role="TBLBANKAHAREKETLER" Type="Self.TBLBANKAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPERSONELLER">
+              <PropertyRef Name="PERSONELID" />
+            </Principal>
+            <Dependent Role="TBLBANKAHAREKETLER">
+              <PropertyRef Name="PERSONEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLBANKALAR_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLBANKALAR" Type="Self.TBLBANKALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLBANKALAR">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLBANKALAR_TBLKURLAR">
+          <End Role="TBLKURLAR" Type="Self.TBLKURLAR" Multiplicity="0..1" />
+          <End Role="TBLBANKALAR" Type="Self.TBLBANKALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLKURLAR">
+              <PropertyRef Name="KURID" />
+            </Principal>
+            <Dependent Role="TBLBANKALAR">
+              <PropertyRef Name="KUR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLBIRIMLER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLBIRIMLER" Type="Self.TBLBIRIMLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLBIRIMLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIHAREKETLER_TBLCARILER">
+          <End Role="TBLCARILER" Type="Self.TBLCARILER" Multiplicity="0..1" />
+          <End Role="TBLCARIHAREKETLER" Type="Self.TBLCARIHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLCARILER">
+              <PropertyRef Name="CARIID" />
+            </Principal>
+            <Dependent Role="TBLCARIHAREKETLER">
+              <PropertyRef Name="CARIID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIHAREKETLER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLCARIHAREKETLER" Type="Self.TBLCARIHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLCARIHAREKETLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIHAREKETLER_TBLISLEM">
+          <End Role="TBLISLEMLER" Type="Self.TBLISLEMLER" Multiplicity="0..1" />
+          <End Role="TBLCARIHAREKETLER" Type="Self.TBLCARIHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLISLEMLER">
+              <PropertyRef Name="ISLEMID" />
+            </Principal>
+            <Dependent Role="TBLCARIHAREKETLER">
+              <PropertyRef Name="ISLEM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIHAREKETLER_TBLKURLAR">
+          <End Role="TBLKURLAR" Type="Self.TBLKURLAR" Multiplicity="0..1" />
+          <End Role="TBLCARIHAREKETLER" Type="Self.TBLCARIHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLKURLAR">
+              <PropertyRef Name="KURID" />
+            </Principal>
+            <Dependent Role="TBLCARIHAREKETLER">
+              <PropertyRef Name="KUR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIHAREKETLER_TBLPERSONELLER">
+          <End Role="TBLPERSONELLER" Type="Self.TBLPERSONELLER" Multiplicity="0..1" />
+          <End Role="TBLCARIHAREKETLER" Type="Self.TBLCARIHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPERSONELLER">
+              <PropertyRef Name="PERSONELID" />
+            </Principal>
+            <Dependent Role="TBLCARIHAREKETLER">
+              <PropertyRef Name="PERSONEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIKONUKHAREKETLER_TBLCARILER">
+          <End Role="TBLCARILER" Type="Self.TBLCARILER" Multiplicity="0..1" />
+          <End Role="TBLCARIKONUKHAREKETLER" Type="Self.TBLCARIKONUKHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLCARILER">
+              <PropertyRef Name="CARIID" />
+            </Principal>
+            <Dependent Role="TBLCARIKONUKHAREKETLER">
+              <PropertyRef Name="CARI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIKONUKHAREKETLER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLCARIKONUKHAREKETLER" Type="Self.TBLCARIKONUKHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLCARIKONUKHAREKETLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIKONUKHAREKETLER_TBLDURUMLAR1">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLCARIKONUKHAREKETLER" Type="Self.TBLCARIKONUKHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLCARIKONUKHAREKETLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIKONUKHAREKETLER_TBLODALAR">
+          <End Role="TBLODALAR" Type="Self.TBLODALAR" Multiplicity="0..1" />
+          <End Role="TBLCARIKONUKHAREKETLER" Type="Self.TBLCARIKONUKHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLODALAR">
+              <PropertyRef Name="ODAID" />
+            </Principal>
+            <Dependent Role="TBLCARIKONUKHAREKETLER">
+              <PropertyRef Name="ODA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIKONUKHAREKETLER_TBLPERSONELLER">
+          <End Role="TBLPERSONELLER" Type="Self.TBLPERSONELLER" Multiplicity="0..1" />
+          <End Role="TBLCARIKONUKHAREKETLER" Type="Self.TBLCARIKONUKHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPERSONELLER">
+              <PropertyRef Name="PERSONELID" />
+            </Principal>
+            <Dependent Role="TBLCARIKONUKHAREKETLER">
+              <PropertyRef Name="PERSONEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARILER_TBLCARITURLER">
+          <End Role="TBLCARITURLER" Type="Self.TBLCARITURLER" Multiplicity="0..1" />
+          <End Role="TBLCARILER" Type="Self.TBLCARILER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLCARITURLER">
+              <PropertyRef Name="CARITURID" />
+            </Principal>
+            <Dependent Role="TBLCARILER">
+              <PropertyRef Name="CARITUR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARILER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLCARILER" Type="Self.TBLCARILER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLCARILER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARILER_TBLUYRUKLAR">
+          <End Role="TBLUYRUKLAR" Type="Self.TBLUYRUKLAR" Multiplicity="0..1" />
+          <End Role="TBLCARILER" Type="Self.TBLCARILER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLUYRUKLAR">
+              <PropertyRef Name="UYRUKID" />
+            </Principal>
+            <Dependent Role="TBLCARILER">
+              <PropertyRef Name="UYRUK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARITURLER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLCARITURLER" Type="Self.TBLCARITURLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLCARITURLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLDEPARTMANLAR_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLDEPARTMANLAR" Type="Self.TBLDEPARTMANLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLDEPARTMANLAR">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLGOREVLER_TBLDEPARTMANLAR">
+          <End Role="TBLDEPARTMANLAR" Type="Self.TBLDEPARTMANLAR" Multiplicity="0..1" />
+          <End Role="TBLGOREVLER" Type="Self.TBLGOREVLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDEPARTMANLAR">
+              <PropertyRef Name="DEPARTMANID" />
+            </Principal>
+            <Dependent Role="TBLGOREVLER">
+              <PropertyRef Name="DEPARTMAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLGOREVLER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLGOREVLER" Type="Self.TBLGOREVLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLGOREVLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLISLEM_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLISLEMLER" Type="Self.TBLISLEMLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLISLEMLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLKASAHAREKETLER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLKASAHAREKETLER" Type="Self.TBLKASAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLKASAHAREKETLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLKASAHAREKETLER_TBLISLEM">
+          <End Role="TBLISLEMLER" Type="Self.TBLISLEMLER" Multiplicity="0..1" />
+          <End Role="TBLKASAHAREKETLER" Type="Self.TBLKASAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLISLEMLER">
+              <PropertyRef Name="ISLEMID" />
+            </Principal>
+            <Dependent Role="TBLKASAHAREKETLER">
+              <PropertyRef Name="ISLEM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLKASAHAREKETLER_TBLKASALAR">
+          <End Role="TBLKASALAR" Type="Self.TBLKASALAR" Multiplicity="0..1" />
+          <End Role="TBLKASAHAREKETLER" Type="Self.TBLKASAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLKASALAR">
+              <PropertyRef Name="KASAID" />
+            </Principal>
+            <Dependent Role="TBLKASAHAREKETLER">
+              <PropertyRef Name="KASAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLKASAHAREKETLER_TBLPERSONELLER">
+          <End Role="TBLPERSONELLER" Type="Self.TBLPERSONELLER" Multiplicity="0..1" />
+          <End Role="TBLKASAHAREKETLER" Type="Self.TBLKASAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPERSONELLER">
+              <PropertyRef Name="PERSONELID" />
+            </Principal>
+            <Dependent Role="TBLKASAHAREKETLER">
+              <PropertyRef Name="PERSONEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLKASALAR_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLKASALAR" Type="Self.TBLKASALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLKASALAR">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLKURLAR_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLKURLAR" Type="Self.TBLKURLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLKURLAR">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLODALAR_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLODALAR" Type="Self.TBLODALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLODALAR">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLPERSONELLER_TBLDEPARTMANLAR">
+          <End Role="TBLDEPARTMANLAR" Type="Self.TBLDEPARTMANLAR" Multiplicity="0..1" />
+          <End Role="TBLPERSONELLER" Type="Self.TBLPERSONELLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDEPARTMANLAR">
+              <PropertyRef Name="DEPARTMANID" />
+            </Principal>
+            <Dependent Role="TBLPERSONELLER">
+              <PropertyRef Name="DEPARTMAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLPERSONELLER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLPERSONELLER" Type="Self.TBLPERSONELLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLPERSONELLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLPERSONELLER_TBLGOREVLER">
+          <End Role="TBLGOREVLER" Type="Self.TBLGOREVLER" Multiplicity="0..1" />
+          <End Role="TBLPERSONELLER" Type="Self.TBLPERSONELLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLGOREVLER">
+              <PropertyRef Name="GOREVID" />
+            </Principal>
+            <Dependent Role="TBLPERSONELLER">
+              <PropertyRef Name="GOREV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLREZERVASYONLAR_TBLCARILER">
+          <End Role="TBLCARILER" Type="Self.TBLCARILER" Multiplicity="0..1" />
+          <End Role="TBLREZERVASYONLAR" Type="Self.TBLREZERVASYONLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLCARILER">
+              <PropertyRef Name="CARIID" />
+            </Principal>
+            <Dependent Role="TBLREZERVASYONLAR">
+              <PropertyRef Name="CARI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLREZERVASYONLAR_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLREZERVASYONLAR" Type="Self.TBLREZERVASYONLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLREZERVASYONLAR">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLREZERVASYONLAR_TBLODALAR">
+          <End Role="TBLODALAR" Type="Self.TBLODALAR" Multiplicity="0..1" />
+          <End Role="TBLREZERVASYONLAR" Type="Self.TBLREZERVASYONLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLODALAR">
+              <PropertyRef Name="ODAID" />
+            </Principal>
+            <Dependent Role="TBLREZERVASYONLAR">
+              <PropertyRef Name="ODA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLTELEFONLAR_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLTELEFONLAR" Type="Self.TBLTELEFONLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLTELEFONLAR">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLURUNGRUPLAR_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLURUNGRUPLAR" Type="Self.TBLURUNGRUPLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLURUNGRUPLAR">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLURUNLER_TBLBIRIMLER">
+          <End Role="TBLBIRIMLER" Type="Self.TBLBIRIMLER" Multiplicity="0..1" />
+          <End Role="TBLURUNLER" Type="Self.TBLURUNLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLBIRIMLER">
+              <PropertyRef Name="BIRIMID" />
+            </Principal>
+            <Dependent Role="TBLURUNLER">
+              <PropertyRef Name="BIRIM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLURUNLER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLURUNLER" Type="Self.TBLURUNLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLURUNLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLURUNLER_TBLDURUMLAR1">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLURUNLER" Type="Self.TBLURUNLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLURUNLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLURUNLER_TBLPERSONELLER">
+          <End Role="TBLPERSONELLER" Type="Self.TBLPERSONELLER" Multiplicity="0..1" />
+          <End Role="TBLURUNLER" Type="Self.TBLURUNLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPERSONELLER">
+              <PropertyRef Name="PERSONELID" />
+            </Principal>
+            <Dependent Role="TBLURUNLER">
+              <PropertyRef Name="PERSONEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLURUNLER_TBLURUNGRUPLAR">
+          <End Role="TBLURUNGRUPLAR" Type="Self.TBLURUNGRUPLAR" Multiplicity="0..1" />
+          <End Role="TBLURUNLER" Type="Self.TBLURUNLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLURUNGRUPLAR">
+              <PropertyRef Name="URUNGRUPID" />
+            </Principal>
+            <Dependent Role="TBLURUNLER">
+              <PropertyRef Name="URUNGRUP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLUYRUKLAR_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLUYRUKLAR" Type="Self.TBLUYRUKLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLUYRUKLAR">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OtelModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLBANKAHAREKETLER" EntityType="Self.TBLBANKAHAREKETLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLBANKALAR" EntityType="Self.TBLBANKALAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLBIRIMLER" EntityType="Self.TBLBIRIMLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLCARIHAREKETLER" EntityType="Self.TBLCARIHAREKETLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLCARIKONUKHAREKETLER" EntityType="Self.TBLCARIKONUKHAREKETLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLCARILER" EntityType="Self.TBLCARILER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLCARITURLER" EntityType="Self.TBLCARITURLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLDEPARTMANLAR" EntityType="Self.TBLDEPARTMANLAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLDURUMLAR" EntityType="Self.TBLDURUMLAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLGOREVLER" EntityType="Self.TBLGOREVLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLISLEMLER" EntityType="Self.TBLISLEMLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLKASAHAREKETLER" EntityType="Self.TBLKASAHAREKETLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLKASALAR" EntityType="Self.TBLKASALAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLKURLAR" EntityType="Self.TBLKURLAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLODALAR" EntityType="Self.TBLODALAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLPERSONELLER" EntityType="Self.TBLPERSONELLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLREZERVASYONLAR" EntityType="Self.TBLREZERVASYONLAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLTELEFONLAR" EntityType="Self.TBLTELEFONLAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLURUNGRUPLAR" EntityType="Self.TBLURUNGRUPLAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLURUNLER" EntityType="Self.TBLURUNLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLUYRUKLAR" EntityType="Self.TBLUYRUKLAR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBLBANKAHAREKETLER_TBLBANKALAR" Association="Self.FK_TBLBANKAHAREKETLER_TBLBANKALAR">
+            <End Role="TBLBANKALAR" EntitySet="TBLBANKALAR" />
+            <End Role="TBLBANKAHAREKETLER" EntitySet="TBLBANKAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLBANKAHAREKETLER_TBLDURUMLAR" Association="Self.FK_TBLBANKAHAREKETLER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLBANKAHAREKETLER" EntitySet="TBLBANKAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLBANKAHAREKETLER_TBLDURUMLAR1" Association="Self.FK_TBLBANKAHAREKETLER_TBLDURUMLAR1">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLBANKAHAREKETLER" EntitySet="TBLBANKAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLBANKAHAREKETLER_TBLISLEM" Association="Self.FK_TBLBANKAHAREKETLER_TBLISLEM">
+            <End Role="TBLISLEMLER" EntitySet="TBLISLEMLER" />
+            <End Role="TBLBANKAHAREKETLER" EntitySet="TBLBANKAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLBANKAHAREKETLER_TBLPERSONELLER" Association="Self.FK_TBLBANKAHAREKETLER_TBLPERSONELLER">
+            <End Role="TBLPERSONELLER" EntitySet="TBLPERSONELLER" />
+            <End Role="TBLBANKAHAREKETLER" EntitySet="TBLBANKAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLBANKALAR_TBLDURUMLAR" Association="Self.FK_TBLBANKALAR_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLBANKALAR" EntitySet="TBLBANKALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLBANKALAR_TBLKURLAR" Association="Self.FK_TBLBANKALAR_TBLKURLAR">
+            <End Role="TBLKURLAR" EntitySet="TBLKURLAR" />
+            <End Role="TBLBANKALAR" EntitySet="TBLBANKALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLBIRIMLER_TBLDURUMLAR" Association="Self.FK_TBLBIRIMLER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLBIRIMLER" EntitySet="TBLBIRIMLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIHAREKETLER_TBLCARILER" Association="Self.FK_TBLCARIHAREKETLER_TBLCARILER">
+            <End Role="TBLCARILER" EntitySet="TBLCARILER" />
+            <End Role="TBLCARIHAREKETLER" EntitySet="TBLCARIHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIHAREKETLER_TBLDURUMLAR" Association="Self.FK_TBLCARIHAREKETLER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLCARIHAREKETLER" EntitySet="TBLCARIHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIHAREKETLER_TBLISLEM" Association="Self.FK_TBLCARIHAREKETLER_TBLISLEM">
+            <End Role="TBLISLEMLER" EntitySet="TBLISLEMLER" />
+            <End Role="TBLCARIHAREKETLER" EntitySet="TBLCARIHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIHAREKETLER_TBLKURLAR" Association="Self.FK_TBLCARIHAREKETLER_TBLKURLAR">
+            <End Role="TBLKURLAR" EntitySet="TBLKURLAR" />
+            <End Role="TBLCARIHAREKETLER" EntitySet="TBLCARIHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIHAREKETLER_TBLPERSONELLER" Association="Self.FK_TBLCARIHAREKETLER_TBLPERSONELLER">
+            <End Role="TBLPERSONELLER" EntitySet="TBLPERSONELLER" />
+            <End Role="TBLCARIHAREKETLER" EntitySet="TBLCARIHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIKONUKHAREKETLER_TBLCARILER" Association="Self.FK_TBLCARIKONUKHAREKETLER_TBLCARILER">
+            <End Role="TBLCARILER" EntitySet="TBLCARILER" />
+            <End Role="TBLCARIKONUKHAREKETLER" EntitySet="TBLCARIKONUKHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIKONUKHAREKETLER_TBLDURUMLAR" Association="Self.FK_TBLCARIKONUKHAREKETLER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLCARIKONUKHAREKETLER" EntitySet="TBLCARIKONUKHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIKONUKHAREKETLER_TBLDURUMLAR1" Association="Self.FK_TBLCARIKONUKHAREKETLER_TBLDURUMLAR1">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLCARIKONUKHAREKETLER" EntitySet="TBLCARIKONUKHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIKONUKHAREKETLER_TBLODALAR" Association="Self.FK_TBLCARIKONUKHAREKETLER_TBLODALAR">
+            <End Role="TBLODALAR" EntitySet="TBLODALAR" />
+            <End Role="TBLCARIKONUKHAREKETLER" EntitySet="TBLCARIKONUKHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIKONUKHAREKETLER_TBLPERSONELLER" Association="Self.FK_TBLCARIKONUKHAREKETLER_TBLPERSONELLER">
+            <End Role="TBLPERSONELLER" EntitySet="TBLPERSONELLER" />
+            <End Role="TBLCARIKONUKHAREKETLER" EntitySet="TBLCARIKONUKHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARILER_TBLCARITURLER" Association="Self.FK_TBLCARILER_TBLCARITURLER">
+            <End Role="TBLCARITURLER" EntitySet="TBLCARITURLER" />
+            <End Role="TBLCARILER" EntitySet="TBLCARILER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARILER_TBLDURUMLAR" Association="Self.FK_TBLCARILER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLCARILER" EntitySet="TBLCARILER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARILER_TBLUYRUKLAR" Association="Self.FK_TBLCARILER_TBLUYRUKLAR">
+            <End Role="TBLUYRUKLAR" EntitySet="TBLUYRUKLAR" />
+            <End Role="TBLCARILER" EntitySet="TBLCARILER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARITURLER_TBLDURUMLAR" Association="Self.FK_TBLCARITURLER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLCARITURLER" EntitySet="TBLCARITURLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLDEPARTMANLAR_TBLDURUMLAR" Association="Self.FK_TBLDEPARTMANLAR_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLDEPARTMANLAR" EntitySet="TBLDEPARTMANLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLGOREVLER_TBLDEPARTMANLAR" Association="Self.FK_TBLGOREVLER_TBLDEPARTMANLAR">
+            <End Role="TBLDEPARTMANLAR" EntitySet="TBLDEPARTMANLAR" />
+            <End Role="TBLGOREVLER" EntitySet="TBLGOREVLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLGOREVLER_TBLDURUMLAR" Association="Self.FK_TBLGOREVLER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLGOREVLER" EntitySet="TBLGOREVLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLISLEM_TBLDURUMLAR" Association="Self.FK_TBLISLEM_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLISLEMLER" EntitySet="TBLISLEMLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLKASAHAREKETLER_TBLDURUMLAR" Association="Self.FK_TBLKASAHAREKETLER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLKASAHAREKETLER" EntitySet="TBLKASAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLKASAHAREKETLER_TBLISLEM" Association="Self.FK_TBLKASAHAREKETLER_TBLISLEM">
+            <End Role="TBLISLEMLER" EntitySet="TBLISLEMLER" />
+            <End Role="TBLKASAHAREKETLER" EntitySet="TBLKASAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLKASAHAREKETLER_TBLKASALAR" Association="Self.FK_TBLKASAHAREKETLER_TBLKASALAR">
+            <End Role="TBLKASALAR" EntitySet="TBLKASALAR" />
+            <End Role="TBLKASAHAREKETLER" EntitySet="TBLKASAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLKASAHAREKETLER_TBLPERSONELLER" Association="Self.FK_TBLKASAHAREKETLER_TBLPERSONELLER">
+            <End Role="TBLPERSONELLER" EntitySet="TBLPERSONELLER" />
+            <End Role="TBLKASAHAREKETLER" EntitySet="TBLKASAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLKASALAR_TBLDURUMLAR" Association="Self.FK_TBLKASALAR_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLKASALAR" EntitySet="TBLKASALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLKURLAR_TBLDURUMLAR" Association="Self.FK_TBLKURLAR_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLKURLAR" EntitySet="TBLKURLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLODALAR_TBLDURUMLAR" Association="Self.FK_TBLODALAR_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLODALAR" EntitySet="TBLODALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLPERSONELLER_TBLDEPARTMANLAR" Association="Self.FK_TBLPERSONELLER_TBLDEPARTMANLAR">
+            <End Role="TBLDEPARTMANLAR" EntitySet="TBLDEPARTMANLAR" />
+            <End Role="TBLPERSONELLER" EntitySet="TBLPERSONELLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLPERSONELLER_TBLDURUMLAR" Association="Self.FK_TBLPERSONELLER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLPERSONELLER" EntitySet="TBLPERSONELLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLPERSONELLER_TBLGOREVLER" Association="Self.FK_TBLPERSONELLER_TBLGOREVLER">
+            <End Role="TBLGOREVLER" EntitySet="TBLGOREVLER" />
+            <End Role="TBLPERSONELLER" EntitySet="TBLPERSONELLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLREZERVASYONLAR_TBLCARILER" Association="Self.FK_TBLREZERVASYONLAR_TBLCARILER">
+            <End Role="TBLCARILER" EntitySet="TBLCARILER" />
+            <End Role="TBLREZERVASYONLAR" EntitySet="TBLREZERVASYONLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLREZERVASYONLAR_TBLDURUMLAR" Association="Self.FK_TBLREZERVASYONLAR_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLREZERVASYONLAR" EntitySet="TBLREZERVASYONLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLREZERVASYONLAR_TBLODALAR" Association="Self.FK_TBLREZERVASYONLAR_TBLODALAR">
+            <End Role="TBLODALAR" EntitySet="TBLODALAR" />
+            <End Role="TBLREZERVASYONLAR" EntitySet="TBLREZERVASYONLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLTELEFONLAR_TBLDURUMLAR" Association="Self.FK_TBLTELEFONLAR_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLTELEFONLAR" EntitySet="TBLTELEFONLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLURUNGRUPLAR_TBLDURUMLAR" Association="Self.FK_TBLURUNGRUPLAR_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLURUNGRUPLAR" EntitySet="TBLURUNGRUPLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLURUNLER_TBLBIRIMLER" Association="Self.FK_TBLURUNLER_TBLBIRIMLER">
+            <End Role="TBLBIRIMLER" EntitySet="TBLBIRIMLER" />
+            <End Role="TBLURUNLER" EntitySet="TBLURUNLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLURUNLER_TBLDURUMLAR" Association="Self.FK_TBLURUNLER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLURUNLER" EntitySet="TBLURUNLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLURUNLER_TBLDURUMLAR1" Association="Self.FK_TBLURUNLER_TBLDURUMLAR1">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLURUNLER" EntitySet="TBLURUNLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLURUNLER_TBLPERSONELLER" Association="Self.FK_TBLURUNLER_TBLPERSONELLER">
+            <End Role="TBLPERSONELLER" EntitySet="TBLPERSONELLER" />
+            <End Role="TBLURUNLER" EntitySet="TBLURUNLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLURUNLER_TBLURUNGRUPLAR" Association="Self.FK_TBLURUNLER_TBLURUNGRUPLAR">
+            <End Role="TBLURUNGRUPLAR" EntitySet="TBLURUNGRUPLAR" />
+            <End Role="TBLURUNLER" EntitySet="TBLURUNLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLUYRUKLAR_TBLDURUMLAR" Association="Self.FK_TBLUYRUKLAR_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLUYRUKLAR" EntitySet="TBLUYRUKLAR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OtelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBLBANKAHAREKETLER">
+          <Key>
+            <PropertyRef Name="BANKAHAREKETID" />
+          </Key>
+          <Property Name="BANKAHAREKETID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HESAPID" Type="Int32" />
+          <Property Name="HESAPBELGENO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="GIREN" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CIKAN" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TARIH" Type="DateTime" Precision="3" />
+          <Property Name="ISLEMID" Type="Int32" />
+          <Property Name="PERSONEL" Type="Int32" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLBANKALAR" Relationship="Self.FK_TBLBANKAHAREKETLER_TBLBANKALAR" FromRole="TBLBANKAHAREKETLER" ToRole="TBLBANKALAR" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLBANKAHAREKETLER_TBLDURUMLAR" FromRole="TBLBANKAHAREKETLER" ToRole="TBLDURUMLAR" />
+          <NavigationProperty Name="TBLDURUMLAR1" Relationship="Self.FK_TBLBANKAHAREKETLER_TBLDURUMLAR1" FromRole="TBLBANKAHAREKETLER" ToRole="TBLDURUMLAR" />
+          <NavigationProperty Name="TBLISLEMLER" Relationship="Self.FK_TBLBANKAHAREKETLER_TBLISLEM" FromRole="TBLBANKAHAREKETLER" ToRole="TBLISLEMLER" />
+          <NavigationProperty Name="TBLPERSONELLER" Relationship="Self.FK_TBLBANKAHAREKETLER_TBLPERSONELLER" FromRole="TBLBANKAHAREKETLER" ToRole="TBLPERSONELLER" />
+        </EntityType>
+        <EntityType Name="TBLBANKALAR">
+          <Key>
+            <PropertyRef Name="BANKAID" />
+          </Key>
+          <Property Name="BANKAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SUBE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="BANKAADI" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="BANKAHESAPNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="KUR" Type="Int32" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLBANKAHAREKETLER" Relationship="Self.FK_TBLBANKAHAREKETLER_TBLBANKALAR" FromRole="TBLBANKALAR" ToRole="TBLBANKAHAREKETLER" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLBANKALAR_TBLDURUMLAR" FromRole="TBLBANKALAR" ToRole="TBLDURUMLAR" />
+          <NavigationProperty Name="TBLKURLAR" Relationship="Self.FK_TBLBANKALAR_TBLKURLAR" FromRole="TBLBANKALAR" ToRole="TBLKURLAR" />
+        </EntityType>
+        <EntityType Name="TBLBIRIMLER">
+          <Key>
+            <PropertyRef Name="BIRIMID" />
+          </Key>
+          <Property Name="BIRIMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BIRIMAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLBIRIMLER_TBLDURUMLAR" FromRole="TBLBIRIMLER" ToRole="TBLDURUMLAR" />
+          <NavigationProperty Name="TBLURUNLER" Relationship="Self.FK_TBLURUNLER_TBLBIRIMLER" FromRole="TBLBIRIMLER" ToRole="TBLURUNLER" />
+        </EntityType>
+        <EntityType Name="TBLCARIHAREKETLER">
+          <Key>
+            <PropertyRef Name="CARIHAREKETID" />
+          </Key>
+          <Property Name="CARIHAREKETID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CARIID" Type="Int32" />
+          <Property Name="ISLEM" Type="Int32" />
+          <Property Name="BELGENO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="KUR" Type="Int32" />
+          <Property Name="NAKIT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="KREDIKARTI" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TARIH" Type="DateTime" Precision="3" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONEL" Type="Int32" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLCARILER" Relationship="Self.FK_TBLCARIHAREKETLER_TBLCARILER" FromRole="TBLCARIHAREKETLER" ToRole="TBLCARILER" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLCARIHAREKETLER_TBLDURUMLAR" FromRole="TBLCARIHAREKETLER" ToRole="TBLDURUMLAR" />
+          <NavigationProperty Name="TBLISLEMLER" Relationship="Self.FK_TBLCARIHAREKETLER_TBLISLEM" FromRole="TBLCARIHAREKETLER" ToRole="TBLISLEMLER" />
+          <NavigationProperty Name="TBLKURLAR" Relationship="Self.FK_TBLCARIHAREKETLER_TBLKURLAR" FromRole="TBLCARIHAREKETLER" ToRole="TBLKURLAR" />
+          <NavigationProperty Name="TBLPERSONELLER" Relationship="Self.FK_TBLCARIHAREKETLER_TBLPERSONELLER" FromRole="TBLCARIHAREKETLER" ToRole="TBLPERSONELLER" />
+        </EntityType>
+        <EntityType Name="TBLCARIKONUKHAREKETLER">
+          <Key>
+            <PropertyRef Name="CARIKONUKHAREKETID" />
+          </Key>
+          <Property Name="CARIKONUKHAREKETID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ODA" Type="Int32" />
+          <Property Name="CARI" Type="Int32" />
+          <Property Name="PERSONEL" Type="Int32" />
+          <Property Name="ADSOYAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="GIRISTARIH" Type="DateTime" Precision="3" />
+          <Property Name="CIKISTARIH" Type="DateTime" Precision="3" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLCARILER" Relationship="Self.FK_TBLCARIKONUKHAREKETLER_TBLCARILER" FromRole="TBLCARIKONUKHAREKETLER" ToRole="TBLCARILER" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLCARIKONUKHAREKETLER_TBLDURUMLAR" FromRole="TBLCARIKONUKHAREKETLER" ToRole="TBLDURUMLAR" />
+          <NavigationProperty Name="TBLDURUMLAR1" Relationship="Self.FK_TBLCARIKONUKHAREKETLER_TBLDURUMLAR1" FromRole="TBLCARIKONUKHAREKETLER" ToRole="TBLDURUMLAR" />
+          <NavigationProperty Name="TBLODALAR" Relationship="Self.FK_TBLCARIKONUKHAREKETLER_TBLODALAR" FromRole="TBLCARIKONUKHAREKETLER" ToRole="TBLODALAR" />
+          <NavigationProperty Name="TBLPERSONELLER" Relationship="Self.FK_TBLCARIKONUKHAREKETLER_TBLPERSONELLER" FromRole="TBLCARIKONUKHAREKETLER" ToRole="TBLPERSONELLER" />
+        </EntityType>
+        <EntityType Name="TBLCARILER">
+          <Key>
+            <PropertyRef Name="CARIID" />
+          </Key>
+          <Property Name="CARIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CARIADSOYAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CARIADRES" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CARITC" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="VERGIDAIRE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFON" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KIMLIKFOTO1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="KIMLIKFOTO2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CARITUR" Type="Int32" />
+          <Property Name="YETKILI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UYRUK" Type="Int32" />
+          <Property Name="BAKIYE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLCARIHAREKETLER" Relationship="Self.FK_TBLCARIHAREKETLER_TBLCARILER" FromRole="TBLCARILER" ToRole="TBLCARIHAREKETLER" />
+          <NavigationProperty Name="TBLCARIKONUKHAREKETLER" Relationship="Self.FK_TBLCARIKONUKHAREKETLER_TBLCARILER" FromRole="TBLCARILER" ToRole="TBLCARIKONUKHAREKETLER" />
+          <NavigationProperty Name="TBLCARITURLER" Relationship="Self.FK_TBLCARILER_TBLCARITURLER" FromRole="TBLCARILER" ToRole="TBLCARITURLER" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLCARILER_TBLDURUMLAR" FromRole="TBLCARILER" ToRole="TBLDURUMLAR" />
+          <NavigationProperty Name="TBLUYRUKLAR" Relationship="Self.FK_TBLCARILER_TBLUYRUKLAR" FromRole="TBLCARILER" ToRole="TBLUYRUKLAR" />
+          <NavigationProperty Name="TBLREZERVASYONLAR" Relationship="Self.FK_TBLREZERVASYONLAR_TBLCARILER" FromRole="TBLCARILER" ToRole="TBLREZERVASYONLAR" />
+        </EntityType>
+        <EntityType Name="TBLCARITURLER">
+          <Key>
+            <PropertyRef Name="CARITURID" />
+          </Key>
+          <Property Name="CARITURID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CARITURAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLCARILER" Relationship="Self.FK_TBLCARILER_TBLCARITURLER" FromRole="TBLCARITURLER" ToRole="TBLCARILER" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLCARITURLER_TBLDURUMLAR" FromRole="TBLCARITURLER" ToRole="TBLDURUMLAR" />
+        </EntityType>
+        <EntityType Name="TBLDEPARTMANLAR">
+          <Key>
+            <PropertyRef Name="DEPARTMANID" />
+          </Key>
+          <Property Name="DEPARTMANID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DEPARTMANAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFON" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLGOREVLER" Relationship="Self.FK_TBLGOREVLER_TBLDEPARTMANLAR" FromRole="TBLDEPARTMANLAR" ToRole="TBLGOREVLER" />
+          <NavigationProperty Name="TBLPERSONELLER" Relationship="Self.FK_TBLPERSONELLER_TBLDEPARTMANLAR" FromRole="TBLDEPARTMANLAR" ToRole="TBLPERSONELLER" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="OtelModel.FK_TBLDEPARTMANLAR_TBLDURUMLAR" FromRole="TBLDEPARTMANLAR" ToRole="TBLDURUMLAR" />
+        </EntityType>
+        <EntityType Name="TBLDURUMLAR">
+          <Key>
+            <PropertyRef Name="DURUMID" />
+          </Key>
+          <Property Name="DURUMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DURUMAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="KATEGORI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLBANKAHAREKETLER" Relationship="Self.FK_TBLBANKAHAREKETLER_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLBANKAHAREKETLER" />
+          <NavigationProperty Name="TBLBANKAHAREKETLER1" Relationship="Self.FK_TBLBANKAHAREKETLER_TBLDURUMLAR1" FromRole="TBLDURUMLAR" ToRole="TBLBANKAHAREKETLER" />
+          <NavigationProperty Name="TBLBANKALAR" Relationship="Self.FK_TBLBANKALAR_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLBANKALAR" />
+          <NavigationProperty Name="TBLBIRIMLER" Relationship="Self.FK_TBLBIRIMLER_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLBIRIMLER" />
+          <NavigationProperty Name="TBLCARIHAREKETLER" Relationship="Self.FK_TBLCARIHAREKETLER_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLCARIHAREKETLER" />
+          <NavigationProperty Name="TBLCARIKONUKHAREKETLER" Relationship="Self.FK_TBLCARIKONUKHAREKETLER_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLCARIKONUKHAREKETLER" />
+          <NavigationProperty Name="TBLCARIKONUKHAREKETLER1" Relationship="Self.FK_TBLCARIKONUKHAREKETLER_TBLDURUMLAR1" FromRole="TBLDURUMLAR" ToRole="TBLCARIKONUKHAREKETLER" />
+          <NavigationProperty Name="TBLCARILER" Relationship="Self.FK_TBLCARILER_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLCARILER" />
+          <NavigationProperty Name="TBLCARITURLER" Relationship="Self.FK_TBLCARITURLER_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLCARITURLER" />
+          <NavigationProperty Name="TBLGOREVLER" Relationship="Self.FK_TBLGOREVLER_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLGOREVLER" />
+          <NavigationProperty Name="TBLISLEMLER" Relationship="Self.FK_TBLISLEM_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLISLEMLER" />
+          <NavigationProperty Name="TBLKASAHAREKETLER" Relationship="Self.FK_TBLKASAHAREKETLER_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLKASAHAREKETLER" />
+          <NavigationProperty Name="TBLKASALAR" Relationship="Self.FK_TBLKASALAR_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLKASALAR" />
+          <NavigationProperty Name="TBLKURLAR" Relationship="Self.FK_TBLKURLAR_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLKURLAR" />
+          <NavigationProperty Name="TBLODALAR" Relationship="Self.FK_TBLODALAR_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLODALAR" />
+          <NavigationProperty Name="TBLPERSONELLER" Relationship="Self.FK_TBLPERSONELLER_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLPERSONELLER" />
+          <NavigationProperty Name="TBLREZERVASYONLAR" Relationship="Self.FK_TBLREZERVASYONLAR_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLREZERVASYONLAR" />
+          <NavigationProperty Name="TBLTELEFONLAR" Relationship="Self.FK_TBLTELEFONLAR_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLTELEFONLAR" />
+          <NavigationProperty Name="TBLURUNGRUPLAR" Relationship="Self.FK_TBLURUNGRUPLAR_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLURUNGRUPLAR" />
+          <NavigationProperty Name="TBLURUNLER" Relationship="Self.FK_TBLURUNLER_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLURUNLER" />
+          <NavigationProperty Name="TBLURUNLER1" Relationship="Self.FK_TBLURUNLER_TBLDURUMLAR1" FromRole="TBLDURUMLAR" ToRole="TBLURUNLER" />
+          <NavigationProperty Name="TBLUYRUKLAR" Relationship="Self.FK_TBLUYRUKLAR_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLUYRUKLAR" />
+          <NavigationProperty Name="TBLDEPARTMANLAR" Relationship="OtelModel.FK_TBLDEPARTMANLAR_TBLDURUMLAR" FromRole="TBLDURUMLAR" ToRole="TBLDEPARTMANLAR" />
+        </EntityType>
+        <EntityType Name="TBLGOREVLER">
+          <Key>
+            <PropertyRef Name="GOREVID" />
+          </Key>
+          <Property Name="GOREVID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GOREVAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DEPARTMAN" Type="Int32" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLDEPARTMANLAR" Relationship="Self.FK_TBLGOREVLER_TBLDEPARTMANLAR" FromRole="TBLGOREVLER" ToRole="TBLDEPARTMANLAR" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLGOREVLER_TBLDURUMLAR" FromRole="TBLGOREVLER" ToRole="TBLDURUMLAR" />
+          <NavigationProperty Name="TBLPERSONELLER" Relationship="Self.FK_TBLPERSONELLER_TBLGOREVLER" FromRole="TBLGOREVLER" ToRole="TBLPERSONELLER" />
+        </EntityType>
+        <EntityType Name="TBLISLEMLER">
+          <Key>
+            <PropertyRef Name="ISLEMID" />
+          </Key>
+          <Property Name="ISLEMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ISLEMAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="KATEGORI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLBANKAHAREKETLER" Relationship="Self.FK_TBLBANKAHAREKETLER_TBLISLEM" FromRole="TBLISLEMLER" ToRole="TBLBANKAHAREKETLER" />
+          <NavigationProperty Name="TBLCARIHAREKETLER" Relationship="Self.FK_TBLCARIHAREKETLER_TBLISLEM" FromRole="TBLISLEMLER" ToRole="TBLCARIHAREKETLER" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLISLEM_TBLDURUMLAR" FromRole="TBLISLEMLER" ToRole="TBLDURUMLAR" />
+          <NavigationProperty Name="TBLKASAHAREKETLER" Relationship="Self.FK_TBLKASAHAREKETLER_TBLISLEM" FromRole="TBLISLEMLER" ToRole="TBLKASAHAREKETLER" />
+        </EntityType>
+        <EntityType Name="TBLKASAHAREKETLER">
+          <Key>
+            <PropertyRef Name="KASAHAREKETID" />
+          </Key>
+          <Property Name="KASAHAREKETID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KASAID" Type="Int32" />
+          <Property Name="KASABELGENO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="GIREN" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CIKAN" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TARIH" Type="DateTime" Precision="3" />
+          <Property Name="ISLEM" Type="Int32" />
+          <Property Name="PERSONEL" Type="Int32" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLKASAHAREKETLER_TBLDURUMLAR" FromRole="TBLKASAHAREKETLER" ToRole="TBLDURUMLAR" />
+          <NavigationProperty Name="TBLISLEMLER" Relationship="Self.FK_TBLKASAHAREKETLER_TBLISLEM" FromRole="TBLKASAHAREKETLER" ToRole="TBLISLEMLER" />
+          <NavigationProperty Name="TBLKASALAR" Relationship="Self.FK_TBLKASAHAREKETLER_TBLKASALAR" FromRole="TBLKASAHAREKETLER" ToRole="TBLKASALAR" />
+          <NavigationProperty Name="TBLPERSONELLER" Relationship="Self.FK_TBLKASAHAREKETLER_TBLPERSONELLER" FromRole="TBLKASAHAREKETLER" ToRole="TBLPERSONELLER" />
+        </EntityType>
+        <EntityType Name="TBLKASALAR">
+          <Key>
+            <PropertyRef Name="KASAID" />
+          </Key>
+          <Property Name="KASAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KASAADI" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="BAKIYE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GIRENDEGER" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CIKANDEGER" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLKASALAR_TBLDURUMLAR" FromRole="TBLKASALAR" ToRole="TBLDURUMLAR" />
+          <NavigationProperty Name="TBLKASAHAREKETLER" Relationship="Self.FK_TBLKASAHAREKETLER_TBLKASALAR" FromRole="TBLKASALAR" ToRole="TBLKASAHAREKETLER" />
+        </EntityType>
+        <EntityType Name="TBLKURLAR">
+          <Key>
+            <PropertyRef Name="KURID" />
+          </Key>
+          <Property Name="KURID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KURAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="KURSEMBOL" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="KURDEGER" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="KURTARIH" Type="DateTime" Precision="3" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLBANKALAR" Relationship="Self.FK_TBLBANKALAR_TBLKURLAR" FromRole="TBLKURLAR" ToRole="TBLBANKALAR" />
+          <NavigationProperty Name="TBLCARIHAREKETLER" Relationship="Self.FK_TBLCARIHAREKETLER_TBLKURLAR" FromRole="TBLKURLAR" ToRole="TBLCARIHAREKETLER" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLKURLAR_TBLDURUMLAR" FromRole="TBLKURLAR" ToRole="TBLDURUMLAR" />
+        </EntityType>
+        <EntityType Name="TBLODALAR">
+          <Key>
+            <PropertyRef Name="ODAID" />
+          </Key>
+          <Property Name="ODAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ODANO" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="KAT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="KAPASITE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="OZELLIK" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFON" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLCARIKONUKHAREKETLER" Relationship="Self.FK_TBLCARIKONUKHAREKETLER_TBLODALAR" FromRole="TBLODALAR" ToRole="TBLCARIKONUKHAREKETLER" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLODALAR_TBLDURUMLAR" FromRole="TBLODALAR" ToRole="TBLDURUMLAR" />
+          <NavigationProperty Name="TBLREZERVASYONLAR" Relationship="Self.FK_TBLREZERVASYONLAR_TBLODALAR" FromRole="TBLODALAR" ToRole="TBLREZERVASYONLAR" />
+        </EntityType>
+        <EntityType Name="TBLPERSONELLER">
+          <Key>
+            <PropertyRef Name="PERSONELID" />
+          </Key>
+          <Property Name="PERSONELID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADSOYAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONELTC" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="ADRES" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFON" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MAIL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="KANGRUBU" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ISEGIRISTARIH" Type="DateTime" Precision="3" />
+          <Property Name="ISCIKISTARIH" Type="DateTime" Precision="3" />
+          <Property Name="DEPARTMAN" Type="Int32" />
+          <Property Name="GOREV" Type="Int32" />
+          <Property Name="YETKISI" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="SIFRE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="KIMLIKON" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="KIMLIKARKA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EHLIYET" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLBANKAHAREKETLER" Relationship="Self.FK_TBLBANKAHAREKETLER_TBLPERSONELLER" FromRole="TBLPERSONELLER" ToRole="TBLBANKAHAREKETLER" />
+          <NavigationProperty Name="TBLCARIHAREKETLER" Relationship="Self.FK_TBLCARIHAREKETLER_TBLPERSONELLER" FromRole="TBLPERSONELLER" ToRole="TBLCARIHAREKETLER" />
+          <NavigationProperty Name="TBLCARIKONUKHAREKETLER" Relationship="Self.FK_TBLCARIKONUKHAREKETLER_TBLPERSONELLER" FromRole="TBLPERSONELLER" ToRole="TBLCARIKONUKHAREKETLER" />
+          <NavigationProperty Name="TBLDEPARTMANLAR" Relationship="Self.FK_TBLPERSONELLER_TBLDEPARTMANLAR" FromRole="TBLPERSONELLER" ToRole="TBLDEPARTMANLAR" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLPERSONELLER_TBLDURUMLAR" FromRole="TBLPERSONELLER" ToRole="TBLDURUMLAR" />
+          <NavigationProperty Name="TBLGOREVLER" Relationship="Self.FK_TBLPERSONELLER_TBLGOREVLER" FromRole="TBLPERSONELLER" ToRole="TBLGOREVLER" />
+          <NavigationProperty Name="TBLKASAHAREKETLER" Relationship="Self.FK_TBLKASAHAREKETLER_TBLPERSONELLER" FromRole="TBLPERSONELLER" ToRole="TBLKASAHAREKETLER" />
+          <NavigationProperty Name="TBLURUNLER" Relationship="Self.FK_TBLURUNLER_TBLPERSONELLER" FromRole="TBLPERSONELLER" ToRole="TBLURUNLER" />
+        </EntityType>
+        <EntityType Name="TBLREZERVASYONLAR">
+          <Key>
+            <PropertyRef Name="REZERVASYONID" />
+          </Key>
+          <Property Name="REZERVASYONID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CARI" Type="Int32" />
+          <Property Name="GIRISTARIH" Type="DateTime" Precision="3" />
+          <Property Name="CIKISTARIH" Type="DateTime" Precision="3" />
+          <Property Name="KISI" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="ODA" Type="Int32" />
+          <Property Name="REZERVASYONADSOYAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFON" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLCARILER" Relationship="Self.FK_TBLREZERVASYONLAR_TBLCARILER" FromRole="TBLREZERVASYONLAR" ToRole="TBLCARILER" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLREZERVASYONLAR_TBLDURUMLAR" FromRole="TBLREZERVASYONLAR" ToRole="TBLDURUMLAR" />
+          <NavigationProperty Name="TBLODALAR" Relationship="Self.FK_TBLREZERVASYONLAR_TBLODALAR" FromRole="TBLREZERVASYONLAR" ToRole="TBLODALAR" />
+        </EntityType>
+        <EntityType Name="TBLTELEFONLAR">
+          <Key>
+            <PropertyRef Name="TELEFONID" />
+          </Key>
+          <Property Name="TELEFONID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TELEFONNO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLTELEFONLAR_TBLDURUMLAR" FromRole="TBLTELEFONLAR" ToRole="TBLDURUMLAR" />
+        </EntityType>
+        <EntityType Name="TBLURUNGRUPLAR">
+          <Key>
+            <PropertyRef Name="URUNGRUPID" />
+          </Key>
+          <Property Name="URUNGRUPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GRUPADI" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLURUNGRUPLAR_TBLDURUMLAR" FromRole="TBLURUNGRUPLAR" ToRole="TBLDURUMLAR" />
+          <NavigationProperty Name="TBLURUNLER" Relationship="Self.FK_TBLURUNLER_TBLURUNGRUPLAR" FromRole="TBLURUNGRUPLAR" ToRole="TBLURUNLER" />
+        </EntityType>
+        <EntityType Name="TBLURUNLER">
+          <Key>
+            <PropertyRef Name="URUNID" />
+          </Key>
+          <Property Name="URUNID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="URUNAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="URUNGRUP" Type="Int32" />
+          <Property Name="BIRIM" Type="Int32" />
+          <Property Name="FIYAT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="KUR" Type="Int32" />
+          <Property Name="GIREN" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CIKAN" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="KALAN" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="KDV" Type="Byte" />
+          <Property Name="TARIH" Type="DateTime" Precision="3" />
+          <Property Name="PERSONEL" Type="Int32" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLBIRIMLER" Relationship="Self.FK_TBLURUNLER_TBLBIRIMLER" FromRole="TBLURUNLER" ToRole="TBLBIRIMLER" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLURUNLER_TBLDURUMLAR" FromRole="TBLURUNLER" ToRole="TBLDURUMLAR" />
+          <NavigationProperty Name="TBLDURUMLAR1" Relationship="Self.FK_TBLURUNLER_TBLDURUMLAR1" FromRole="TBLURUNLER" ToRole="TBLDURUMLAR" />
+          <NavigationProperty Name="TBLPERSONELLER" Relationship="Self.FK_TBLURUNLER_TBLPERSONELLER" FromRole="TBLURUNLER" ToRole="TBLPERSONELLER" />
+          <NavigationProperty Name="TBLURUNGRUPLAR" Relationship="Self.FK_TBLURUNLER_TBLURUNGRUPLAR" FromRole="TBLURUNLER" ToRole="TBLURUNGRUPLAR" />
+        </EntityType>
+        <EntityType Name="TBLUYRUKLAR">
+          <Key>
+            <PropertyRef Name="UYRUKID" />
+          </Key>
+          <Property Name="UYRUKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ULKEAD" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Int32" />
+          <NavigationProperty Name="TBLCARILER" Relationship="Self.FK_TBLCARILER_TBLUYRUKLAR" FromRole="TBLUYRUKLAR" ToRole="TBLCARILER" />
+          <NavigationProperty Name="TBLDURUMLAR" Relationship="Self.FK_TBLUYRUKLAR_TBLDURUMLAR" FromRole="TBLUYRUKLAR" ToRole="TBLDURUMLAR" />
+        </EntityType>
+        <Association Name="FK_TBLBANKAHAREKETLER_TBLBANKALAR">
+          <End Role="TBLBANKALAR" Type="Self.TBLBANKALAR" Multiplicity="0..1" />
+          <End Role="TBLBANKAHAREKETLER" Type="Self.TBLBANKAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLBANKALAR">
+              <PropertyRef Name="BANKAID" />
+            </Principal>
+            <Dependent Role="TBLBANKAHAREKETLER">
+              <PropertyRef Name="HESAPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLBANKAHAREKETLER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLBANKAHAREKETLER" Type="Self.TBLBANKAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLBANKAHAREKETLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLBANKAHAREKETLER_TBLDURUMLAR1">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLBANKAHAREKETLER" Type="Self.TBLBANKAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLBANKAHAREKETLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLBANKAHAREKETLER_TBLISLEM">
+          <End Role="TBLISLEMLER" Type="Self.TBLISLEMLER" Multiplicity="0..1" />
+          <End Role="TBLBANKAHAREKETLER" Type="Self.TBLBANKAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLISLEMLER">
+              <PropertyRef Name="ISLEMID" />
+            </Principal>
+            <Dependent Role="TBLBANKAHAREKETLER">
+              <PropertyRef Name="ISLEMID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLBANKAHAREKETLER_TBLPERSONELLER">
+          <End Role="TBLPERSONELLER" Type="Self.TBLPERSONELLER" Multiplicity="0..1" />
+          <End Role="TBLBANKAHAREKETLER" Type="Self.TBLBANKAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPERSONELLER">
+              <PropertyRef Name="PERSONELID" />
+            </Principal>
+            <Dependent Role="TBLBANKAHAREKETLER">
+              <PropertyRef Name="PERSONEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLBANKALAR_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLBANKALAR" Type="Self.TBLBANKALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLBANKALAR">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLBANKALAR_TBLKURLAR">
+          <End Role="TBLKURLAR" Type="Self.TBLKURLAR" Multiplicity="0..1" />
+          <End Role="TBLBANKALAR" Type="Self.TBLBANKALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLKURLAR">
+              <PropertyRef Name="KURID" />
+            </Principal>
+            <Dependent Role="TBLBANKALAR">
+              <PropertyRef Name="KUR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLBIRIMLER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLBIRIMLER" Type="Self.TBLBIRIMLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLBIRIMLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLURUNLER_TBLBIRIMLER">
+          <End Role="TBLBIRIMLER" Type="Self.TBLBIRIMLER" Multiplicity="0..1" />
+          <End Role="TBLURUNLER" Type="Self.TBLURUNLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLBIRIMLER">
+              <PropertyRef Name="BIRIMID" />
+            </Principal>
+            <Dependent Role="TBLURUNLER">
+              <PropertyRef Name="BIRIM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIHAREKETLER_TBLCARILER">
+          <End Role="TBLCARILER" Type="Self.TBLCARILER" Multiplicity="0..1" />
+          <End Role="TBLCARIHAREKETLER" Type="Self.TBLCARIHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLCARILER">
+              <PropertyRef Name="CARIID" />
+            </Principal>
+            <Dependent Role="TBLCARIHAREKETLER">
+              <PropertyRef Name="CARIID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIHAREKETLER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLCARIHAREKETLER" Type="Self.TBLCARIHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLCARIHAREKETLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIHAREKETLER_TBLISLEM">
+          <End Role="TBLISLEMLER" Type="Self.TBLISLEMLER" Multiplicity="0..1" />
+          <End Role="TBLCARIHAREKETLER" Type="Self.TBLCARIHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLISLEMLER">
+              <PropertyRef Name="ISLEMID" />
+            </Principal>
+            <Dependent Role="TBLCARIHAREKETLER">
+              <PropertyRef Name="ISLEM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIHAREKETLER_TBLKURLAR">
+          <End Role="TBLKURLAR" Type="Self.TBLKURLAR" Multiplicity="0..1" />
+          <End Role="TBLCARIHAREKETLER" Type="Self.TBLCARIHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLKURLAR">
+              <PropertyRef Name="KURID" />
+            </Principal>
+            <Dependent Role="TBLCARIHAREKETLER">
+              <PropertyRef Name="KUR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIHAREKETLER_TBLPERSONELLER">
+          <End Role="TBLPERSONELLER" Type="Self.TBLPERSONELLER" Multiplicity="0..1" />
+          <End Role="TBLCARIHAREKETLER" Type="Self.TBLCARIHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPERSONELLER">
+              <PropertyRef Name="PERSONELID" />
+            </Principal>
+            <Dependent Role="TBLCARIHAREKETLER">
+              <PropertyRef Name="PERSONEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIKONUKHAREKETLER_TBLCARILER">
+          <End Role="TBLCARILER" Type="Self.TBLCARILER" Multiplicity="0..1" />
+          <End Role="TBLCARIKONUKHAREKETLER" Type="Self.TBLCARIKONUKHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLCARILER">
+              <PropertyRef Name="CARIID" />
+            </Principal>
+            <Dependent Role="TBLCARIKONUKHAREKETLER">
+              <PropertyRef Name="CARI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIKONUKHAREKETLER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLCARIKONUKHAREKETLER" Type="Self.TBLCARIKONUKHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLCARIKONUKHAREKETLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIKONUKHAREKETLER_TBLDURUMLAR1">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLCARIKONUKHAREKETLER" Type="Self.TBLCARIKONUKHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLCARIKONUKHAREKETLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIKONUKHAREKETLER_TBLODALAR">
+          <End Role="TBLODALAR" Type="Self.TBLODALAR" Multiplicity="0..1" />
+          <End Role="TBLCARIKONUKHAREKETLER" Type="Self.TBLCARIKONUKHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLODALAR">
+              <PropertyRef Name="ODAID" />
+            </Principal>
+            <Dependent Role="TBLCARIKONUKHAREKETLER">
+              <PropertyRef Name="ODA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARIKONUKHAREKETLER_TBLPERSONELLER">
+          <End Role="TBLPERSONELLER" Type="Self.TBLPERSONELLER" Multiplicity="0..1" />
+          <End Role="TBLCARIKONUKHAREKETLER" Type="Self.TBLCARIKONUKHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPERSONELLER">
+              <PropertyRef Name="PERSONELID" />
+            </Principal>
+            <Dependent Role="TBLCARIKONUKHAREKETLER">
+              <PropertyRef Name="PERSONEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARILER_TBLCARITURLER">
+          <End Role="TBLCARITURLER" Type="Self.TBLCARITURLER" Multiplicity="0..1" />
+          <End Role="TBLCARILER" Type="Self.TBLCARILER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLCARITURLER">
+              <PropertyRef Name="CARITURID" />
+            </Principal>
+            <Dependent Role="TBLCARILER">
+              <PropertyRef Name="CARITUR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARILER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLCARILER" Type="Self.TBLCARILER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLCARILER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARILER_TBLUYRUKLAR">
+          <End Role="TBLUYRUKLAR" Type="Self.TBLUYRUKLAR" Multiplicity="0..1" />
+          <End Role="TBLCARILER" Type="Self.TBLCARILER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLUYRUKLAR">
+              <PropertyRef Name="UYRUKID" />
+            </Principal>
+            <Dependent Role="TBLCARILER">
+              <PropertyRef Name="UYRUK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLREZERVASYONLAR_TBLCARILER">
+          <End Role="TBLCARILER" Type="Self.TBLCARILER" Multiplicity="0..1" />
+          <End Role="TBLREZERVASYONLAR" Type="Self.TBLREZERVASYONLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLCARILER">
+              <PropertyRef Name="CARIID" />
+            </Principal>
+            <Dependent Role="TBLREZERVASYONLAR">
+              <PropertyRef Name="CARI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLCARITURLER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLCARITURLER" Type="Self.TBLCARITURLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLCARITURLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLGOREVLER_TBLDEPARTMANLAR">
+          <End Role="TBLDEPARTMANLAR" Type="Self.TBLDEPARTMANLAR" Multiplicity="0..1" />
+          <End Role="TBLGOREVLER" Type="Self.TBLGOREVLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDEPARTMANLAR">
+              <PropertyRef Name="DEPARTMANID" />
+            </Principal>
+            <Dependent Role="TBLGOREVLER">
+              <PropertyRef Name="DEPARTMAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLPERSONELLER_TBLDEPARTMANLAR">
+          <End Role="TBLDEPARTMANLAR" Type="Self.TBLDEPARTMANLAR" Multiplicity="0..1" />
+          <End Role="TBLPERSONELLER" Type="Self.TBLPERSONELLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDEPARTMANLAR">
+              <PropertyRef Name="DEPARTMANID" />
+            </Principal>
+            <Dependent Role="TBLPERSONELLER">
+              <PropertyRef Name="DEPARTMAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLGOREVLER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLGOREVLER" Type="Self.TBLGOREVLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLGOREVLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLISLEM_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLISLEMLER" Type="Self.TBLISLEMLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLISLEMLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLKASAHAREKETLER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLKASAHAREKETLER" Type="Self.TBLKASAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLKASAHAREKETLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLKASALAR_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLKASALAR" Type="Self.TBLKASALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLKASALAR">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLKURLAR_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLKURLAR" Type="Self.TBLKURLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLKURLAR">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLODALAR_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLODALAR" Type="Self.TBLODALAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLODALAR">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLPERSONELLER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLPERSONELLER" Type="Self.TBLPERSONELLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLPERSONELLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLREZERVASYONLAR_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLREZERVASYONLAR" Type="Self.TBLREZERVASYONLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLREZERVASYONLAR">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLTELEFONLAR_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLTELEFONLAR" Type="Self.TBLTELEFONLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLTELEFONLAR">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLURUNGRUPLAR_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLURUNGRUPLAR" Type="Self.TBLURUNGRUPLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLURUNGRUPLAR">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLURUNLER_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLURUNLER" Type="Self.TBLURUNLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLURUNLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLURUNLER_TBLDURUMLAR1">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLURUNLER" Type="Self.TBLURUNLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLURUNLER">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLUYRUKLAR_TBLDURUMLAR">
+          <End Role="TBLDURUMLAR" Type="Self.TBLDURUMLAR" Multiplicity="0..1" />
+          <End Role="TBLUYRUKLAR" Type="Self.TBLUYRUKLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLUYRUKLAR">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLPERSONELLER_TBLGOREVLER">
+          <End Role="TBLGOREVLER" Type="Self.TBLGOREVLER" Multiplicity="0..1" />
+          <End Role="TBLPERSONELLER" Type="Self.TBLPERSONELLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLGOREVLER">
+              <PropertyRef Name="GOREVID" />
+            </Principal>
+            <Dependent Role="TBLPERSONELLER">
+              <PropertyRef Name="GOREV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLKASAHAREKETLER_TBLISLEM">
+          <End Role="TBLISLEMLER" Type="Self.TBLISLEMLER" Multiplicity="0..1" />
+          <End Role="TBLKASAHAREKETLER" Type="Self.TBLKASAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLISLEMLER">
+              <PropertyRef Name="ISLEMID" />
+            </Principal>
+            <Dependent Role="TBLKASAHAREKETLER">
+              <PropertyRef Name="ISLEM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLKASAHAREKETLER_TBLKASALAR">
+          <End Role="TBLKASALAR" Type="Self.TBLKASALAR" Multiplicity="0..1" />
+          <End Role="TBLKASAHAREKETLER" Type="Self.TBLKASAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLKASALAR">
+              <PropertyRef Name="KASAID" />
+            </Principal>
+            <Dependent Role="TBLKASAHAREKETLER">
+              <PropertyRef Name="KASAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLKASAHAREKETLER_TBLPERSONELLER">
+          <End Role="TBLPERSONELLER" Type="Self.TBLPERSONELLER" Multiplicity="0..1" />
+          <End Role="TBLKASAHAREKETLER" Type="Self.TBLKASAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPERSONELLER">
+              <PropertyRef Name="PERSONELID" />
+            </Principal>
+            <Dependent Role="TBLKASAHAREKETLER">
+              <PropertyRef Name="PERSONEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLREZERVASYONLAR_TBLODALAR">
+          <End Role="TBLODALAR" Type="Self.TBLODALAR" Multiplicity="0..1" />
+          <End Role="TBLREZERVASYONLAR" Type="Self.TBLREZERVASYONLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLODALAR">
+              <PropertyRef Name="ODAID" />
+            </Principal>
+            <Dependent Role="TBLREZERVASYONLAR">
+              <PropertyRef Name="ODA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLURUNLER_TBLPERSONELLER">
+          <End Role="TBLPERSONELLER" Type="Self.TBLPERSONELLER" Multiplicity="0..1" />
+          <End Role="TBLURUNLER" Type="Self.TBLURUNLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPERSONELLER">
+              <PropertyRef Name="PERSONELID" />
+            </Principal>
+            <Dependent Role="TBLURUNLER">
+              <PropertyRef Name="PERSONEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLURUNLER_TBLURUNGRUPLAR">
+          <End Role="TBLURUNGRUPLAR" Type="Self.TBLURUNGRUPLAR" Multiplicity="0..1" />
+          <End Role="TBLURUNLER" Type="Self.TBLURUNLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLURUNGRUPLAR">
+              <PropertyRef Name="URUNGRUPID" />
+            </Principal>
+            <Dependent Role="TBLURUNLER">
+              <PropertyRef Name="URUNGRUP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OtelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBLBANKAHAREKETLER" EntityType="Self.TBLBANKAHAREKETLER" />
+          <EntitySet Name="TBLBANKALAR" EntityType="Self.TBLBANKALAR" />
+          <EntitySet Name="TBLBIRIMLER" EntityType="Self.TBLBIRIMLER" />
+          <EntitySet Name="TBLCARIHAREKETLER" EntityType="Self.TBLCARIHAREKETLER" />
+          <EntitySet Name="TBLCARIKONUKHAREKETLER" EntityType="Self.TBLCARIKONUKHAREKETLER" />
+          <EntitySet Name="TBLCARILER" EntityType="Self.TBLCARILER" />
+          <EntitySet Name="TBLCARITURLER" EntityType="Self.TBLCARITURLER" />
+          <EntitySet Name="TBLDEPARTMANLAR" EntityType="Self.TBLDEPARTMANLAR" />
+          <EntitySet Name="TBLDURUMLAR" EntityType="Self.TBLDURUMLAR" />
+          <EntitySet Name="TBLGOREVLER" EntityType="Self.TBLGOREVLER" />
+          <EntitySet Name="TBLISLEMLER" EntityType="Self.TBLISLEMLER" />
+          <EntitySet Name="TBLKASAHAREKETLER" EntityType="Self.TBLKASAHAREKETLER" />
+          <EntitySet Name="TBLKASALAR" EntityType="Self.TBLKASALAR" />
+          <EntitySet Name="TBLKURLAR" EntityType="Self.TBLKURLAR" />
+          <EntitySet Name="TBLODALAR" EntityType="Self.TBLODALAR" />
+          <EntitySet Name="TBLPERSONELLER" EntityType="Self.TBLPERSONELLER" />
+          <EntitySet Name="TBLREZERVASYONLAR" EntityType="Self.TBLREZERVASYONLAR" />
+          <EntitySet Name="TBLTELEFONLAR" EntityType="Self.TBLTELEFONLAR" />
+          <EntitySet Name="TBLURUNGRUPLAR" EntityType="Self.TBLURUNGRUPLAR" />
+          <EntitySet Name="TBLURUNLER" EntityType="Self.TBLURUNLER" />
+          <EntitySet Name="TBLUYRUKLAR" EntityType="Self.TBLUYRUKLAR" />
+          <AssociationSet Name="FK_TBLBANKAHAREKETLER_TBLBANKALAR" Association="Self.FK_TBLBANKAHAREKETLER_TBLBANKALAR">
+            <End Role="TBLBANKALAR" EntitySet="TBLBANKALAR" />
+            <End Role="TBLBANKAHAREKETLER" EntitySet="TBLBANKAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLBANKAHAREKETLER_TBLDURUMLAR" Association="Self.FK_TBLBANKAHAREKETLER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLBANKAHAREKETLER" EntitySet="TBLBANKAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLBANKAHAREKETLER_TBLDURUMLAR1" Association="Self.FK_TBLBANKAHAREKETLER_TBLDURUMLAR1">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLBANKAHAREKETLER" EntitySet="TBLBANKAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLBANKAHAREKETLER_TBLISLEM" Association="Self.FK_TBLBANKAHAREKETLER_TBLISLEM">
+            <End Role="TBLISLEMLER" EntitySet="TBLISLEMLER" />
+            <End Role="TBLBANKAHAREKETLER" EntitySet="TBLBANKAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLBANKAHAREKETLER_TBLPERSONELLER" Association="Self.FK_TBLBANKAHAREKETLER_TBLPERSONELLER">
+            <End Role="TBLPERSONELLER" EntitySet="TBLPERSONELLER" />
+            <End Role="TBLBANKAHAREKETLER" EntitySet="TBLBANKAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLBANKALAR_TBLDURUMLAR" Association="Self.FK_TBLBANKALAR_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLBANKALAR" EntitySet="TBLBANKALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLBANKALAR_TBLKURLAR" Association="Self.FK_TBLBANKALAR_TBLKURLAR">
+            <End Role="TBLKURLAR" EntitySet="TBLKURLAR" />
+            <End Role="TBLBANKALAR" EntitySet="TBLBANKALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLBIRIMLER_TBLDURUMLAR" Association="Self.FK_TBLBIRIMLER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLBIRIMLER" EntitySet="TBLBIRIMLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLURUNLER_TBLBIRIMLER" Association="Self.FK_TBLURUNLER_TBLBIRIMLER">
+            <End Role="TBLBIRIMLER" EntitySet="TBLBIRIMLER" />
+            <End Role="TBLURUNLER" EntitySet="TBLURUNLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIHAREKETLER_TBLCARILER" Association="Self.FK_TBLCARIHAREKETLER_TBLCARILER">
+            <End Role="TBLCARILER" EntitySet="TBLCARILER" />
+            <End Role="TBLCARIHAREKETLER" EntitySet="TBLCARIHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIHAREKETLER_TBLDURUMLAR" Association="Self.FK_TBLCARIHAREKETLER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLCARIHAREKETLER" EntitySet="TBLCARIHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIHAREKETLER_TBLISLEM" Association="Self.FK_TBLCARIHAREKETLER_TBLISLEM">
+            <End Role="TBLISLEMLER" EntitySet="TBLISLEMLER" />
+            <End Role="TBLCARIHAREKETLER" EntitySet="TBLCARIHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIHAREKETLER_TBLKURLAR" Association="Self.FK_TBLCARIHAREKETLER_TBLKURLAR">
+            <End Role="TBLKURLAR" EntitySet="TBLKURLAR" />
+            <End Role="TBLCARIHAREKETLER" EntitySet="TBLCARIHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIHAREKETLER_TBLPERSONELLER" Association="Self.FK_TBLCARIHAREKETLER_TBLPERSONELLER">
+            <End Role="TBLPERSONELLER" EntitySet="TBLPERSONELLER" />
+            <End Role="TBLCARIHAREKETLER" EntitySet="TBLCARIHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIKONUKHAREKETLER_TBLCARILER" Association="Self.FK_TBLCARIKONUKHAREKETLER_TBLCARILER">
+            <End Role="TBLCARILER" EntitySet="TBLCARILER" />
+            <End Role="TBLCARIKONUKHAREKETLER" EntitySet="TBLCARIKONUKHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIKONUKHAREKETLER_TBLDURUMLAR" Association="Self.FK_TBLCARIKONUKHAREKETLER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLCARIKONUKHAREKETLER" EntitySet="TBLCARIKONUKHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIKONUKHAREKETLER_TBLDURUMLAR1" Association="Self.FK_TBLCARIKONUKHAREKETLER_TBLDURUMLAR1">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLCARIKONUKHAREKETLER" EntitySet="TBLCARIKONUKHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIKONUKHAREKETLER_TBLODALAR" Association="Self.FK_TBLCARIKONUKHAREKETLER_TBLODALAR">
+            <End Role="TBLODALAR" EntitySet="TBLODALAR" />
+            <End Role="TBLCARIKONUKHAREKETLER" EntitySet="TBLCARIKONUKHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARIKONUKHAREKETLER_TBLPERSONELLER" Association="Self.FK_TBLCARIKONUKHAREKETLER_TBLPERSONELLER">
+            <End Role="TBLPERSONELLER" EntitySet="TBLPERSONELLER" />
+            <End Role="TBLCARIKONUKHAREKETLER" EntitySet="TBLCARIKONUKHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARILER_TBLCARITURLER" Association="Self.FK_TBLCARILER_TBLCARITURLER">
+            <End Role="TBLCARITURLER" EntitySet="TBLCARITURLER" />
+            <End Role="TBLCARILER" EntitySet="TBLCARILER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARILER_TBLDURUMLAR" Association="Self.FK_TBLCARILER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLCARILER" EntitySet="TBLCARILER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARILER_TBLUYRUKLAR" Association="Self.FK_TBLCARILER_TBLUYRUKLAR">
+            <End Role="TBLUYRUKLAR" EntitySet="TBLUYRUKLAR" />
+            <End Role="TBLCARILER" EntitySet="TBLCARILER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLREZERVASYONLAR_TBLCARILER" Association="Self.FK_TBLREZERVASYONLAR_TBLCARILER">
+            <End Role="TBLCARILER" EntitySet="TBLCARILER" />
+            <End Role="TBLREZERVASYONLAR" EntitySet="TBLREZERVASYONLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLCARITURLER_TBLDURUMLAR" Association="Self.FK_TBLCARITURLER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLCARITURLER" EntitySet="TBLCARITURLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLGOREVLER_TBLDEPARTMANLAR" Association="Self.FK_TBLGOREVLER_TBLDEPARTMANLAR">
+            <End Role="TBLDEPARTMANLAR" EntitySet="TBLDEPARTMANLAR" />
+            <End Role="TBLGOREVLER" EntitySet="TBLGOREVLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLPERSONELLER_TBLDEPARTMANLAR" Association="Self.FK_TBLPERSONELLER_TBLDEPARTMANLAR">
+            <End Role="TBLDEPARTMANLAR" EntitySet="TBLDEPARTMANLAR" />
+            <End Role="TBLPERSONELLER" EntitySet="TBLPERSONELLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLGOREVLER_TBLDURUMLAR" Association="Self.FK_TBLGOREVLER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLGOREVLER" EntitySet="TBLGOREVLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLISLEM_TBLDURUMLAR" Association="Self.FK_TBLISLEM_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLISLEMLER" EntitySet="TBLISLEMLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLKASAHAREKETLER_TBLDURUMLAR" Association="Self.FK_TBLKASAHAREKETLER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLKASAHAREKETLER" EntitySet="TBLKASAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLKASALAR_TBLDURUMLAR" Association="Self.FK_TBLKASALAR_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLKASALAR" EntitySet="TBLKASALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLKURLAR_TBLDURUMLAR" Association="Self.FK_TBLKURLAR_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLKURLAR" EntitySet="TBLKURLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLODALAR_TBLDURUMLAR" Association="Self.FK_TBLODALAR_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLODALAR" EntitySet="TBLODALAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLPERSONELLER_TBLDURUMLAR" Association="Self.FK_TBLPERSONELLER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLPERSONELLER" EntitySet="TBLPERSONELLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLREZERVASYONLAR_TBLDURUMLAR" Association="Self.FK_TBLREZERVASYONLAR_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLREZERVASYONLAR" EntitySet="TBLREZERVASYONLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLTELEFONLAR_TBLDURUMLAR" Association="Self.FK_TBLTELEFONLAR_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLTELEFONLAR" EntitySet="TBLTELEFONLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLURUNGRUPLAR_TBLDURUMLAR" Association="Self.FK_TBLURUNGRUPLAR_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLURUNGRUPLAR" EntitySet="TBLURUNGRUPLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLURUNLER_TBLDURUMLAR" Association="Self.FK_TBLURUNLER_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLURUNLER" EntitySet="TBLURUNLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLURUNLER_TBLDURUMLAR1" Association="Self.FK_TBLURUNLER_TBLDURUMLAR1">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLURUNLER" EntitySet="TBLURUNLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLUYRUKLAR_TBLDURUMLAR" Association="Self.FK_TBLUYRUKLAR_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLUYRUKLAR" EntitySet="TBLUYRUKLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLPERSONELLER_TBLGOREVLER" Association="Self.FK_TBLPERSONELLER_TBLGOREVLER">
+            <End Role="TBLGOREVLER" EntitySet="TBLGOREVLER" />
+            <End Role="TBLPERSONELLER" EntitySet="TBLPERSONELLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLKASAHAREKETLER_TBLISLEM" Association="Self.FK_TBLKASAHAREKETLER_TBLISLEM">
+            <End Role="TBLISLEMLER" EntitySet="TBLISLEMLER" />
+            <End Role="TBLKASAHAREKETLER" EntitySet="TBLKASAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLKASAHAREKETLER_TBLKASALAR" Association="Self.FK_TBLKASAHAREKETLER_TBLKASALAR">
+            <End Role="TBLKASALAR" EntitySet="TBLKASALAR" />
+            <End Role="TBLKASAHAREKETLER" EntitySet="TBLKASAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLKASAHAREKETLER_TBLPERSONELLER" Association="Self.FK_TBLKASAHAREKETLER_TBLPERSONELLER">
+            <End Role="TBLPERSONELLER" EntitySet="TBLPERSONELLER" />
+            <End Role="TBLKASAHAREKETLER" EntitySet="TBLKASAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLREZERVASYONLAR_TBLODALAR" Association="Self.FK_TBLREZERVASYONLAR_TBLODALAR">
+            <End Role="TBLODALAR" EntitySet="TBLODALAR" />
+            <End Role="TBLREZERVASYONLAR" EntitySet="TBLREZERVASYONLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLURUNLER_TBLPERSONELLER" Association="Self.FK_TBLURUNLER_TBLPERSONELLER">
+            <End Role="TBLPERSONELLER" EntitySet="TBLPERSONELLER" />
+            <End Role="TBLURUNLER" EntitySet="TBLURUNLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLURUNLER_TBLURUNGRUPLAR" Association="Self.FK_TBLURUNLER_TBLURUNGRUPLAR">
+            <End Role="TBLURUNGRUPLAR" EntitySet="TBLURUNGRUPLAR" />
+            <End Role="TBLURUNLER" EntitySet="TBLURUNLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLDEPARTMANLAR_TBLDURUMLAR" Association="OtelModel.FK_TBLDEPARTMANLAR_TBLDURUMLAR">
+            <End Role="TBLDURUMLAR" EntitySet="TBLDURUMLAR" />
+            <End Role="TBLDEPARTMANLAR" EntitySet="TBLDEPARTMANLAR" />
+          </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="OtelModel.sysdiagrams" />
+        </EntityContainer>
+        <Association Name="FK_TBLDEPARTMANLAR_TBLDURUMLAR">
+          <End Type="OtelModel.TBLDURUMLAR" Role="TBLDURUMLAR" Multiplicity="0..1" />
+          <End Type="OtelModel.TBLDEPARTMANLAR" Role="TBLDEPARTMANLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLDURUMLAR">
+              <PropertyRef Name="DURUMID" />
+            </Principal>
+            <Dependent Role="TBLDEPARTMANLAR">
+              <PropertyRef Name="DURUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OtelModelStoreContainer" CdmEntityContainer="OtelEntities">
+          <EntitySetMapping Name="TBLBANKAHAREKETLER">
+            <EntityTypeMapping TypeName="OtelModel.TBLBANKAHAREKETLER">
+              <MappingFragment StoreEntitySet="TBLBANKAHAREKETLER">
+                <ScalarProperty Name="BANKAHAREKETID" ColumnName="BANKAHAREKETID" />
+                <ScalarProperty Name="HESAPID" ColumnName="HESAPID" />
+                <ScalarProperty Name="HESAPBELGENO" ColumnName="HESAPBELGENO" />
+                <ScalarProperty Name="GIREN" ColumnName="GIREN" />
+                <ScalarProperty Name="CIKAN" ColumnName="CIKAN" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="ISLEMID" ColumnName="ISLEMID" />
+                <ScalarProperty Name="PERSONEL" ColumnName="PERSONEL" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLBANKALAR">
+            <EntityTypeMapping TypeName="OtelModel.TBLBANKALAR">
+              <MappingFragment StoreEntitySet="TBLBANKALAR">
+                <ScalarProperty Name="BANKAID" ColumnName="BANKAID" />
+                <ScalarProperty Name="SUBE" ColumnName="SUBE" />
+                <ScalarProperty Name="BANKAADI" ColumnName="BANKAADI" />
+                <ScalarProperty Name="BANKAHESAPNO" ColumnName="BANKAHESAPNO" />
+                <ScalarProperty Name="KUR" ColumnName="KUR" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLBIRIMLER">
+            <EntityTypeMapping TypeName="OtelModel.TBLBIRIMLER">
+              <MappingFragment StoreEntitySet="TBLBIRIMLER">
+                <ScalarProperty Name="BIRIMID" ColumnName="BIRIMID" />
+                <ScalarProperty Name="BIRIMAD" ColumnName="BIRIMAD" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLCARIHAREKETLER">
+            <EntityTypeMapping TypeName="OtelModel.TBLCARIHAREKETLER">
+              <MappingFragment StoreEntitySet="TBLCARIHAREKETLER">
+                <ScalarProperty Name="CARIHAREKETID" ColumnName="CARIHAREKETID" />
+                <ScalarProperty Name="CARIID" ColumnName="CARIID" />
+                <ScalarProperty Name="ISLEM" ColumnName="ISLEM" />
+                <ScalarProperty Name="BELGENO" ColumnName="BELGENO" />
+                <ScalarProperty Name="KUR" ColumnName="KUR" />
+                <ScalarProperty Name="NAKIT" ColumnName="NAKIT" />
+                <ScalarProperty Name="KREDIKARTI" ColumnName="KREDIKARTI" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="PERSONEL" ColumnName="PERSONEL" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLCARIKONUKHAREKETLER">
+            <EntityTypeMapping TypeName="OtelModel.TBLCARIKONUKHAREKETLER">
+              <MappingFragment StoreEntitySet="TBLCARIKONUKHAREKETLER">
+                <ScalarProperty Name="CARIKONUKHAREKETID" ColumnName="CARIKONUKHAREKETID" />
+                <ScalarProperty Name="ODA" ColumnName="ODA" />
+                <ScalarProperty Name="CARI" ColumnName="CARI" />
+                <ScalarProperty Name="PERSONEL" ColumnName="PERSONEL" />
+                <ScalarProperty Name="ADSOYAD" ColumnName="ADSOYAD" />
+                <ScalarProperty Name="GIRISTARIH" ColumnName="GIRISTARIH" />
+                <ScalarProperty Name="CIKISTARIH" ColumnName="CIKISTARIH" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLCARILER">
+            <EntityTypeMapping TypeName="OtelModel.TBLCARILER">
+              <MappingFragment StoreEntitySet="TBLCARILER">
+                <ScalarProperty Name="CARIID" ColumnName="CARIID" />
+                <ScalarProperty Name="CARIADSOYAD" ColumnName="CARIADSOYAD" />
+                <ScalarProperty Name="CARIADRES" ColumnName="CARIADRES" />
+                <ScalarProperty Name="CARITC" ColumnName="CARITC" />
+                <ScalarProperty Name="VERGIDAIRE" ColumnName="VERGIDAIRE" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+                <ScalarProperty Name="KIMLIKFOTO1" ColumnName="KIMLIKFOTO1" />
+                <ScalarProperty Name="KIMLIKFOTO2" ColumnName="KIMLIKFOTO2" />
+                <ScalarProperty Name="CARITUR" ColumnName="CARITUR" />
+                <ScalarProperty Name="YETKILI" ColumnName="YETKILI" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="UYRUK" ColumnName="UYRUK" />
+                <ScalarProperty Name="BAKIYE" ColumnName="BAKIYE" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLCARITURLER">
+            <EntityTypeMapping TypeName="OtelModel.TBLCARITURLER">
+              <MappingFragment StoreEntitySet="TBLCARITURLER">
+                <ScalarProperty Name="CARITURID" ColumnName="CARITURID" />
+                <ScalarProperty Name="CARITURAD" ColumnName="CARITURAD" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLDEPARTMANLAR">
+            <EntityTypeMapping TypeName="OtelModel.TBLDEPARTMANLAR">
+              <MappingFragment StoreEntitySet="TBLDEPARTMANLAR">
+                <ScalarProperty Name="DEPARTMANID" ColumnName="DEPARTMANID" />
+                <ScalarProperty Name="DEPARTMANAD" ColumnName="DEPARTMANAD" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLDURUMLAR">
+            <EntityTypeMapping TypeName="OtelModel.TBLDURUMLAR">
+              <MappingFragment StoreEntitySet="TBLDURUMLAR">
+                <ScalarProperty Name="DURUMID" ColumnName="DURUMID" />
+                <ScalarProperty Name="DURUMAD" ColumnName="DURUMAD" />
+                <ScalarProperty Name="KATEGORI" ColumnName="KATEGORI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLGOREVLER">
+            <EntityTypeMapping TypeName="OtelModel.TBLGOREVLER">
+              <MappingFragment StoreEntitySet="TBLGOREVLER">
+                <ScalarProperty Name="GOREVID" ColumnName="GOREVID" />
+                <ScalarProperty Name="GOREVAD" ColumnName="GOREVAD" />
+                <ScalarProperty Name="DEPARTMAN" ColumnName="DEPARTMAN" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLISLEMLER">
+            <EntityTypeMapping TypeName="OtelModel.TBLISLEMLER">
+              <MappingFragment StoreEntitySet="TBLISLEMLER">
+                <ScalarProperty Name="ISLEMID" ColumnName="ISLEMID" />
+                <ScalarProperty Name="ISLEMAD" ColumnName="ISLEMAD" />
+                <ScalarProperty Name="KATEGORI" ColumnName="KATEGORI" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLKASAHAREKETLER">
+            <EntityTypeMapping TypeName="OtelModel.TBLKASAHAREKETLER">
+              <MappingFragment StoreEntitySet="TBLKASAHAREKETLER">
+                <ScalarProperty Name="KASAHAREKETID" ColumnName="KASAHAREKETID" />
+                <ScalarProperty Name="KASAID" ColumnName="KASAID" />
+                <ScalarProperty Name="KASABELGENO" ColumnName="KASABELGENO" />
+                <ScalarProperty Name="GIREN" ColumnName="GIREN" />
+                <ScalarProperty Name="CIKAN" ColumnName="CIKAN" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="ISLEM" ColumnName="ISLEM" />
+                <ScalarProperty Name="PERSONEL" ColumnName="PERSONEL" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLKASALAR">
+            <EntityTypeMapping TypeName="OtelModel.TBLKASALAR">
+              <MappingFragment StoreEntitySet="TBLKASALAR">
+                <ScalarProperty Name="KASAID" ColumnName="KASAID" />
+                <ScalarProperty Name="KASAADI" ColumnName="KASAADI" />
+                <ScalarProperty Name="BAKIYE" ColumnName="BAKIYE" />
+                <ScalarProperty Name="GIRENDEGER" ColumnName="GIRENDEGER" />
+                <ScalarProperty Name="CIKANDEGER" ColumnName="CIKANDEGER" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLKURLAR">
+            <EntityTypeMapping TypeName="OtelModel.TBLKURLAR">
+              <MappingFragment StoreEntitySet="TBLKURLAR">
+                <ScalarProperty Name="KURID" ColumnName="KURID" />
+                <ScalarProperty Name="KURAD" ColumnName="KURAD" />
+                <ScalarProperty Name="KURSEMBOL" ColumnName="KURSEMBOL" />
+                <ScalarProperty Name="KURDEGER" ColumnName="KURDEGER" />
+                <ScalarProperty Name="KURTARIH" ColumnName="KURTARIH" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLODALAR">
+            <EntityTypeMapping TypeName="OtelModel.TBLODALAR">
+              <MappingFragment StoreEntitySet="TBLODALAR">
+                <ScalarProperty Name="ODAID" ColumnName="ODAID" />
+                <ScalarProperty Name="ODANO" ColumnName="ODANO" />
+                <ScalarProperty Name="KAT" ColumnName="KAT" />
+                <ScalarProperty Name="KAPASITE" ColumnName="KAPASITE" />
+                <ScalarProperty Name="OZELLIK" ColumnName="OZELLIK" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLPERSONELLER">
+            <EntityTypeMapping TypeName="OtelModel.TBLPERSONELLER">
+              <MappingFragment StoreEntitySet="TBLPERSONELLER">
+                <ScalarProperty Name="PERSONELID" ColumnName="PERSONELID" />
+                <ScalarProperty Name="ADSOYAD" ColumnName="ADSOYAD" />
+                <ScalarProperty Name="PERSONELTC" ColumnName="PERSONELTC" />
+                <ScalarProperty Name="ADRES" ColumnName="ADRES" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+                <ScalarProperty Name="KANGRUBU" ColumnName="KANGRUBU" />
+                <ScalarProperty Name="ISEGIRISTARIH" ColumnName="ISEGIRISTARIH" />
+                <ScalarProperty Name="ISCIKISTARIH" ColumnName="ISCIKISTARIH" />
+                <ScalarProperty Name="DEPARTMAN" ColumnName="DEPARTMAN" />
+                <ScalarProperty Name="GOREV" ColumnName="GOREV" />
+                <ScalarProperty Name="YETKISI" ColumnName="YETKISI" />
+                <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+                <ScalarProperty Name="KIMLIKON" ColumnName="KIMLIKON" />
+                <ScalarProperty Name="KIMLIKARKA" ColumnName="KIMLIKARKA" />
+                <ScalarProperty Name="EHLIYET" ColumnName="EHLIYET" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLREZERVASYONLAR">
+            <EntityTypeMapping TypeName="OtelModel.TBLREZERVASYONLAR">
+              <MappingFragment StoreEntitySet="TBLREZERVASYONLAR">
+                <ScalarProperty Name="REZERVASYONID" ColumnName="REZERVASYONID" />
+                <ScalarProperty Name="CARI" ColumnName="CARI" />
+                <ScalarProperty Name="GIRISTARIH" ColumnName="GIRISTARIH" />
+                <ScalarProperty Name="CIKISTARIH" ColumnName="CIKISTARIH" />
+                <ScalarProperty Name="KISI" ColumnName="KISI" />
+                <ScalarProperty Name="ODA" ColumnName="ODA" />
+                <ScalarProperty Name="REZERVASYONADSOYAD" ColumnName="REZERVASYONADSOYAD" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLTELEFONLAR">
+            <EntityTypeMapping TypeName="OtelModel.TBLTELEFONLAR">
+              <MappingFragment StoreEntitySet="TBLTELEFONLAR">
+                <ScalarProperty Name="TELEFONID" ColumnName="TELEFONID" />
+                <ScalarProperty Name="TELEFONNO" ColumnName="TELEFONNO" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLURUNGRUPLAR">
+            <EntityTypeMapping TypeName="OtelModel.TBLURUNGRUPLAR">
+              <MappingFragment StoreEntitySet="TBLURUNGRUPLAR">
+                <ScalarProperty Name="URUNGRUPID" ColumnName="URUNGRUPID" />
+                <ScalarProperty Name="GRUPADI" ColumnName="GRUPADI" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLURUNLER">
+            <EntityTypeMapping TypeName="OtelModel.TBLURUNLER">
+              <MappingFragment StoreEntitySet="TBLURUNLER">
+                <ScalarProperty Name="URUNID" ColumnName="URUNID" />
+                <ScalarProperty Name="URUNAD" ColumnName="URUNAD" />
+                <ScalarProperty Name="URUNGRUP" ColumnName="URUNGRUP" />
+                <ScalarProperty Name="BIRIM" ColumnName="BIRIM" />
+                <ScalarProperty Name="FIYAT" ColumnName="FIYAT" />
+                <ScalarProperty Name="KUR" ColumnName="KUR" />
+                <ScalarProperty Name="GIREN" ColumnName="GIREN" />
+                <ScalarProperty Name="CIKAN" ColumnName="CIKAN" />
+                <ScalarProperty Name="KALAN" ColumnName="KALAN" />
+                <ScalarProperty Name="KDV" ColumnName="KDV" />
+                <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+                <ScalarProperty Name="PERSONEL" ColumnName="PERSONEL" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLUYRUKLAR">
+            <EntityTypeMapping TypeName="OtelModel.TBLUYRUKLAR">
+              <MappingFragment StoreEntitySet="TBLUYRUKLAR">
+                <ScalarProperty Name="UYRUKID" ColumnName="UYRUKID" />
+                <ScalarProperty Name="ULKEAD" ColumnName="ULKEAD" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="OtelModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
